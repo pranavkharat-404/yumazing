@@ -1,0 +1,254 @@
+[
+  {
+    "id": "vada-pav",
+    "name": "Vada Pav",
+    "category": "starters-snacks",
+    "price": 15,
+    "isVeg": true,
+    "description": "Mumbai's favourite — spiced potato fritter tucked in a soft pav with chutneys.",
+    "image": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "crispy-vada-pav",
+    "name": "Crispy Vada Pav",
+    "category": "starters-snacks",
+    "price": 20,
+    "isVeg": true,
+    "description": "The classic vada pav, extra crunchy, with a fiery garlic chutney kick.",
+    "image": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "french-fries",
+    "name": "French Fries",
+    "category": "starters-snacks",
+    "price": 49,
+    "isVeg": true,
+    "description": "Golden, crisp-edged fries salted just right. A snack-time classic.",
+    "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "peri-peri-fries",
+    "name": "Peri Peri French Fries",
+    "category": "starters-snacks",
+    "price": 59,
+    "isVeg": true,
+    "description": "Crispy fries tossed in smoky peri peri seasoning for a bold, tangy heat.",
+    "image": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "mayo-fries",
+    "name": "Mayo French Fries",
+    "category": "starters-snacks",
+    "price": 69,
+    "isVeg": true,
+    "description": "Loaded fries drizzled generously with creamy, tangy mayo.",
+    "image": "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "cheese-garlic-bread",
+    "name": "Cheese Garlic Bread",
+    "category": "starters-snacks",
+    "price": 59,
+    "isVeg": true,
+    "description": "Toasted bread loaded with melted cheese and roasted garlic butter.",
+    "image": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=500&q=80&auto=format&fit=crop",
+    "isBestSeller": true
+  },
+  {
+    "id": "dry-manchurian",
+    "name": "Dry Manchurian",
+    "category": "starters-snacks",
+    "price": 59,
+    "isVeg": true,
+    "description": "Crispy veg balls tossed in a spicy, tangy Indo-Chinese Manchurian glaze.",
+    "image": "https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "veg-momos",
+    "name": "Veg Momos (5 Pieces)",
+    "category": "starters-snacks",
+    "price": 79,
+    "isVeg": true,
+    "description": "Steamed dumplings packed with fresh vegetables, served with spicy chutney.",
+    "image": "https://images.unsplash.com/photo-1541696490-8744a5dc0228?w=500&q=80&auto=format&fit=crop",
+    "isBestSeller": true,
+    "isTodaysSpecial": true
+  },
+  {
+    "id": "paneer-momos",
+    "name": "Paneer Momos (5 Pieces)",
+    "category": "starters-snacks",
+    "price": 99,
+    "isVeg": true,
+    "description": "Soft steamed momos stuffed with a spiced cottage cheese filling.",
+    "image": "https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "veg-kurkure-momos",
+    "name": "Veg Kurkure Momos (5 Pieces)",
+    "category": "starters-snacks",
+    "price": 119,
+    "isVeg": true,
+    "description": "Veg momos coated in a crunchy kurkure crust and deep-fried to perfection.",
+    "image": "https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "paneer-kurkure-momos",
+    "name": "Paneer Kurkure Momos (5 Pieces)",
+    "category": "starters-snacks",
+    "price": 139,
+    "isVeg": true,
+    "description": "Paneer momos rolled in a crispy kurkure coating — crunchy outside, juicy inside.",
+    "image": "https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=500&q=80&auto=format&fit=crop",
+    "isBestSeller": true
+  },
+  {
+    "id": "veg-burger",
+    "name": "Veg Burger",
+    "category": "burgers-sandwiches",
+    "price": 69,
+    "isVeg": true,
+    "description": "A juicy veg patty stacked with fresh veggies and house sauces in a soft bun.",
+    "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "veg-sandwich",
+    "name": "Veg Sandwich",
+    "category": "burgers-sandwiches",
+    "price": 49,
+    "isVeg": true,
+    "description": "Classic layered sandwich with crisp vegetables and mint chutney.",
+    "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "veg-grill-sandwich",
+    "name": "Veg Grill Sandwich",
+    "category": "burgers-sandwiches",
+    "price": 59,
+    "isVeg": true,
+    "description": "Buttery grilled sandwich, toasted golden with melted cheese and veggies.",
+    "image": "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "chocolate-sandwich",
+    "name": "Chocolate Sandwich",
+    "category": "burgers-sandwiches",
+    "price": 59,
+    "isVeg": true,
+    "description": "A sweet grilled sandwich oozing with molten chocolate — a cafe favourite.",
+    "image": "https://images.unsplash.com/photo-1481070555726-e2fe8357725c?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "margherita-pizza",
+    "name": "Margherita Pizza",
+    "category": "pizzas",
+    "price": 99,
+    "isVeg": true,
+    "description": "Classic cheese and tomato pizza on a hand-tossed base.",
+    "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=500&q=80&auto=format&fit=crop",
+    "isBestSeller": true
+  },
+  {
+    "id": "veg-pizza",
+    "name": "Veg Pizza",
+    "category": "pizzas",
+    "price": 119,
+    "isVeg": true,
+    "description": "Loaded with fresh garden vegetables and mozzarella cheese.",
+    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "corn-pizza",
+    "name": "Corn Pizza",
+    "category": "pizzas",
+    "price": 119,
+    "isVeg": true,
+    "description": "Sweet corn kernels and mozzarella over a rich tomato base.",
+    "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "paneer-pizza",
+    "name": "Paneer Pizza",
+    "category": "pizzas",
+    "price": 149,
+    "isVeg": true,
+    "description": "Spiced paneer cubes, peppers and onions on a cheesy pizza base.",
+    "image": "https://images.unsplash.com/photo-1593246049226-ded77bf90326?w=500&q=80&auto=format&fit=crop",
+    "isBestSeller": true
+  },
+  {
+    "id": "cold-coffee",
+    "name": "Cold Coffee",
+    "category": "coffee",
+    "price": 49,
+    "isVeg": true,
+    "description": "Chilled, frothy coffee blended smooth and lightly sweetened.",
+    "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&q=80&auto=format&fit=crop",
+    "isBestSeller": true,
+    "isTodaysSpecial": true
+  },
+  {
+    "id": "oreo-cold-coffee",
+    "name": "Oreo Cold Coffee",
+    "category": "coffee",
+    "price": 59,
+    "isVeg": true,
+    "description": "Cold coffee blended with crushed Oreo cookies and topped with crumbs.",
+    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "kitkat-cold-coffee",
+    "name": "KitKat Cold Coffee",
+    "category": "coffee",
+    "price": 69,
+    "isVeg": true,
+    "description": "Rich cold coffee swirled with KitKat chunks for a chocolatey crunch.",
+    "image": "https://images.unsplash.com/photo-1596952954288-16862d37405b?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "mojito",
+    "name": "Mojito",
+    "category": "mocktail",
+    "price": 49,
+    "isVeg": true,
+    "description": "Refreshing mint and lime mocktail over crushed ice.",
+    "image": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=500&q=80&auto=format&fit=crop",
+    "isPopular": true
+  },
+  {
+    "id": "blue-lagoon",
+    "name": "Blue Lagoon",
+    "category": "mocktail",
+    "price": 49,
+    "isVeg": true,
+    "description": "A vibrant blue citrus mocktail that's as refreshing as it looks.",
+    "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "strawberry-mocktail",
+    "name": "Strawberry Mocktail",
+    "category": "mocktail",
+    "price": 59,
+    "isVeg": true,
+    "description": "A fruity, chilled strawberry cooler topped with fresh strawberry bits.",
+    "image": "https://images.unsplash.com/photo-1497534446932-c925b458314e?w=500&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "choco-lava-cake",
+    "name": "Choco Lava Cake",
+    "category": "dessert",
+    "price": 49,
+    "isVeg": true,
+    "description": "Warm chocolate cake with a molten centre — the perfect way to end your meal.",
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&q=80&auto=format&fit=crop",
+    "isBestSeller": true,
+    "isTodaysSpecial": true
+  }
+]
