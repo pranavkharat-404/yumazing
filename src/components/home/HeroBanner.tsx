@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, Instagram, MapPin } from "lucide-react";
@@ -17,13 +18,18 @@ export function HeroBanner() {
         transition={{ duration: 0.5 }}
         className="relative z-10 flex flex-col items-center text-center"
       >
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gold-gradient font-display text-2xl font-bold text-forest-900 shadow-gold">
-          Y
+        <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl bg-cream-50 shadow-gold sm:h-32 sm:w-32">
+          <Image
+            src="/brand/logo.png"
+            alt={CAFE.name}
+            fill
+            sizes="128px"
+            className="object-contain p-2"
+            priority
+          />
         </div>
-        <h1 className="mt-4 font-display text-2xl font-bold leading-tight text-cream-50">
-          {CAFE.name}
-        </h1>
-        <p className="mt-1.5 text-sm font-medium text-gold-200">{CAFE.tagline}</p>
+        <h1 className="sr-only">{CAFE.name}</h1>
+        <p className="mt-4 text-sm font-medium text-gold-200">{CAFE.tagline}</p>
 
         <div className="mt-4 flex items-center gap-1.5 text-xs text-cream-200/80">
           <MapPin className="h-3.5 w-3.5 text-gold-300" />
