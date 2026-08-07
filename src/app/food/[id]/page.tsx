@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ChevronLeft, Flame, Sparkles } from "lucide-react";
+import { ChevronLeft, Sparkles } from "lucide-react";
 import { getAllMenuItems, getMenuItemById } from "@/hooks/useMenu";
 import { VegBadge } from "@/components/shared/VegBadge";
 import { Badge } from "@/components/ui/badge";
@@ -53,11 +53,6 @@ export default async function FoodDetailPage({ params }: FoodPageProps) {
 
       <div className="relative -mt-6 rounded-t-4xl bg-cream-50 px-5 pt-6">
         <div className="flex flex-wrap gap-2">
-          {item.isBestSeller && (
-            <Badge variant="gold">
-              <Flame className="h-2.5 w-2.5" /> Best Seller
-            </Badge>
-          )}
           {item.isTodaysSpecial && (
             <Badge variant="default">
               <Sparkles className="h-2.5 w-2.5" /> Today's Special

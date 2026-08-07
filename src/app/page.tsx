@@ -2,12 +2,11 @@ import { HeroBanner } from "@/components/home/HeroBanner";
 import { CategoryScroll } from "@/components/home/CategoryScroll";
 import { FoodCarouselSection } from "@/components/home/FoodCarouselSection";
 import { Footer } from "@/components/layout/Footer";
-import { getTodaysSpecials, getPopularItems, getBestSellers } from "@/hooks/useMenu";
+import { getTodaysSpecials, getPopularItems } from "@/hooks/useMenu";
 
 export default function HomePage() {
   const specials = getTodaysSpecials();
   const popular = getPopularItems();
-  const bestSellers = getBestSellers();
 
   return (
     <div className="animate-fade-up">
@@ -25,13 +24,6 @@ export default function HomePage() {
         eyebrow="Loved by regulars"
         title="Popular Items"
         items={popular}
-        href="/menu"
-      />
-
-      <FoodCarouselSection
-        eyebrow="Top rated"
-        title="Best Sellers"
-        items={bestSellers}
         href="/menu"
       />
 

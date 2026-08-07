@@ -1,7 +1,7 @@
 export const CAFE = {
   name: "Yumazing Multi Food Corner",
   tagline: "Good Food • Good Mood • Great Memories",
-  addressLines: ["Yumazing Multi Food Corner,", "DP Road, Ram Nagar,", "Mehkar"],
+  addressLines: ["Yumazing Multi Food Corner", "DP Road, Ram Nagar,", "Mehkar"],
   phone: process.env.NEXT_PUBLIC_CAFE_PHONE || "+918378929230",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918378929230",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/yumazing",

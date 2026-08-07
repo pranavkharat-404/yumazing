@@ -5,7 +5,7 @@
     "category": "starters-snacks",
     "price": 15,
     "isVeg": true,
-    "description": "Mumbai's favourite — spiced potato fritter tucked in a soft pav with chutneys.",
+    "description": "Mumbai's favourite spiced potato fritter tucked in a soft pav with chutneys.",
     "image": "/food/vada-pav.jpg",
     "isPopular": true
   },
@@ -43,7 +43,7 @@
     "category": "starters-snacks",
     "price": 69,
     "isVeg": true,
-    "description": "Loaded fries drizzled generously with creamy, tangy mayo.",
+    "description": "Loaded fries drizzled generously with creamy mayo.",
     "image": "/food/mayo-fries.jpg"
   },
   {
@@ -101,7 +101,7 @@
     "category": "starters-snacks",
     "price": 139,
     "isVeg": true,
-    "description": "Paneer momos rolled in a crispy kurkure coating — crunchy outside, juicy inside.",
+    "description": "Paneer momos rolled in a crispy kurkure coating - crunchy outside, juicy inside.",
     "image": "/food/paneer-kurkure-momos.jpg",
     "isBestSeller": true
   },
@@ -140,7 +140,7 @@
     "category": "burgers-sandwiches",
     "price": 59,
     "isVeg": true,
-    "description": "A sweet grilled sandwich oozing with molten chocolate — a cafe favourite.",
+    "description": "A sweet grilled sandwich oozing with molten chocolate, the cafe favourite.",
     "image": "/food/chocolate-sandwich.jpg"
   },
   {
@@ -246,7 +246,7 @@
     "category": "dessert",
     "price": 49,
     "isVeg": true,
-    "description": "Warm chocolate cake with a molten centre — the perfect way to end your meal.",
+    "description": "Warm chocolate cake with a molten centre. The perfect way to end your meal.",
     "image": "/food/choco-lava-cake.jpg",
     "isBestSeller": true,
     "isTodaysSpecial": true

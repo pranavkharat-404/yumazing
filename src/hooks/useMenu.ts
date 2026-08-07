@@ -22,10 +22,6 @@ export function getItemsByCategory(slug: CategorySlug): MenuItem[] {
   return MENU.filter((item) => item.category === slug);
 }
 
-export function getBestSellers(): MenuItem[] {
-  return MENU.filter((item) => item.isBestSeller);
-}
-
 export function getPopularItems(): MenuItem[] {
   return MENU.filter((item) => item.isPopular);
 }

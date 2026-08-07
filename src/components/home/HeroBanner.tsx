@@ -33,7 +33,7 @@ export function HeroBanner() {
 
         <div className="mt-4 flex items-center gap-1.5 text-xs text-cream-200/80">
           <MapPin className="h-3.5 w-3.5 text-gold-300" />
-          <span>{CAFE.addressLines.join(" ")}</span>
+          <span>{CAFE.name}</span>
         </div>
 
         <div className="mt-6 flex w-full items-center justify-center gap-3">

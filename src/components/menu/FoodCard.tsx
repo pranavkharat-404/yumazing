@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Plus, Minus, Flame, Sparkles } from "lucide-react";
+import { Plus, Minus, Sparkles } from "lucide-react";
 import type { MenuItem } from "@/types";
 import { VegBadge } from "@/components/shared/VegBadge";
 import { PriceTag } from "@/components/shared/PriceTag";
@@ -40,12 +40,7 @@ export function FoodCard({ item, className }: { item: MenuItem; className?: stri
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute left-2 top-2 flex flex-col gap-1">
-          {item.isBestSeller && (
-            <Badge variant="gold" className="shadow-sm">
-              <Flame className="h-2.5 w-2.5" /> Best Seller
-            </Badge>
-          )}
-          {item.isTodaysSpecial && !item.isBestSeller && (
+          {item.isTodaysSpecial && (
             <Badge variant="default" className="shadow-sm">
               <Sparkles className="h-2.5 w-2.5" /> Special
             </Badge>
@@ -56,13 +51,12 @@ export function FoodCard({ item, className }: { item: MenuItem; className?: stri
         </div>
       </Link>
 
-      <div className="flex flex-1 flex-col gap-1 p-3">
+      <div className="flex flex-1 flex-col gap-2 p-3">
         <Link href={`/food/${item.id}`}>
-          <h3 className="line-clamp-1 font-display text-sm font-semibold text-forest-900">{item.name}</h3>
+          <h3 className="line-clamp-2 font-display text-sm font-semibold text-forest-900">{item.name}</h3>
         </Link>
-        <p className="line-clamp-2 text-xs text-forest-400">{item.description}</p>
 
-        <div className="mt-auto flex items-center justify-between pt-2">
+        <div className="mt-auto flex items-center justify-between pt-1">
           <PriceTag amount={item.price} />
 
           {quantity === 0 ? (
