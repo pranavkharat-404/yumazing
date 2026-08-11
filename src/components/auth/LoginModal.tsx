@@ -108,7 +108,7 @@ export function LoginModal() {
                   <Input
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Priya Sharma"
+                    placeholder="Enter Your Name"
                     className="pl-11"
                   />
                 </div>
@@ -128,7 +128,7 @@ export function LoginModal() {
                   inputMode="numeric"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
-                  placeholder="98765 43210"
+                  placeholder="Enter Your Phone No"
                   className="pl-[4.5rem]"
                 />
               </div>
