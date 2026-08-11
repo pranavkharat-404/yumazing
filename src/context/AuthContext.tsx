@@ -6,9 +6,12 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut as firebaseSignOut,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  updateEmail,
   type User,
 } from "firebase/auth";
-import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import type { CustomerProfile } from "@/types";
 
@@ -38,6 +41,8 @@ interface AuthContextValue {
   clearAuthError: () => void;
   logout: () => Promise<void>;
   submitting: boolean;
+  updateName: (name: string) => Promise<void>;
+  updatePhone: (newPhoneDigits: string, currentPassword: string) => Promise<void>;
 }
 
 const AuthContext = React.createContext<AuthContextValue | undefined>(undefined);
@@ -158,6 +163,27 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await firebaseSignOut(auth);
   }, []);
 
+  const updateName = React.useCallback(async (name: string) => {
+    const currentUser = auth.currentUser;
+    if (!currentUser) throw new Error("Not logged in");
+    await updateDoc(doc(db, "users", currentUser.uid), { name });
+    setProfile((prev) => (prev ? { ...prev, name } : prev));
+  }, []);
+
+  const updatePhone = React.useCallback(async (newPhoneDigits: string, currentPassword: string) => {
+    const currentUser = auth.currentUser;
+    if (!currentUser || !currentUser.email) throw new Error("Not logged in");
+
+    const credential = EmailAuthProvider.credential(currentUser.email, currentPassword);
+    await reauthenticateWithCredential(currentUser, credential);
+
+    await updateEmail(currentUser, phoneToAuthEmail(newPhoneDigits));
+
+    const newPhone = `+91${newPhoneDigits}`;
+    await updateDoc(doc(db, "users", currentUser.uid), { phone: newPhone });
+    setProfile((prev) => (prev ? { ...prev, phone: newPhone } : prev));
+  }, []);
+
   const value: AuthContextValue = {
     user,
     profile,
@@ -171,6 +197,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     clearAuthError,
     logout,
     submitting,
+    updateName,
+    updatePhone,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
