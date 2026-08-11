@@ -9,9 +9,10 @@ import {
   EmailAuthProvider,
   reauthenticateWithCredential,
   updateEmail,
+  deleteUser,
   type User,
 } from "firebase/auth";
-import { doc, getDoc, setDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import type { CustomerProfile } from "@/types";
 
@@ -43,6 +44,7 @@ interface AuthContextValue {
   submitting: boolean;
   updateName: (name: string) => Promise<void>;
   updatePhone: (newPhoneDigits: string, currentPassword: string) => Promise<void>;
+  deleteAccount: (currentPassword: string) => Promise<void>;
 }
 
 const AuthContext = React.createContext<AuthContextValue | undefined>(undefined);
@@ -184,6 +186,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setProfile((prev) => (prev ? { ...prev, phone: newPhone } : prev));
   }, []);
 
+  const deleteAccount = React.useCallback(async (currentPassword: string) => {
+    const currentUser = auth.currentUser;
+    if (!currentUser || !currentUser.email) throw new Error("Not logged in");
+
+    const credential = EmailAuthProvider.credential(currentUser.email, currentPassword);
+    await reauthenticateWithCredential(currentUser, credential);
+
+    await deleteDoc(doc(db, "users", currentUser.uid));
+    await deleteUser(currentUser);
+
+    setProfile(null);
+    setUser(null);
+  }, []);
+
   const value: AuthContextValue = {
     user,
     profile,
@@ -199,6 +215,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     submitting,
     updateName,
     updatePhone,
+    deleteAccount,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -13,17 +13,19 @@ import {
   Lock,
   Loader2,
   Check,
+  Trash2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetHeader, SheetTitle, SheetBody, SheetFooter } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 import { EmptyState } from "@/components/shared/EmptyState";
 import { useAuth } from "@/context/AuthContext";
 import { CAFE } from "@/lib/constants";
 import { buildWhatsAppChatUrl } from "@/lib/whatsapp";
 
 export default function ProfilePage() {
-  const { user, profile, loading, openLogin, logout, updateName, updatePhone } = useAuth();
+  const { user, profile, loading, openLogin, logout, updateName, updatePhone, deleteAccount } = useAuth();
 
   const [editOpen, setEditOpen] = React.useState(false);
   const [name, setName] = React.useState(profile?.name ?? "");
@@ -38,6 +40,11 @@ export default function ProfilePage() {
   const [phoneSaved, setPhoneSaved] = React.useState(false);
   const [phoneError, setPhoneError] = React.useState<string | null>(null);
 
+  const [deleteMode, setDeleteMode] = React.useState(false);
+  const [deletePassword, setDeletePassword] = React.useState("");
+  const [deleteSubmitting, setDeleteSubmitting] = React.useState(false);
+  const [deleteError, setDeleteError] = React.useState<string | null>(null);
+
   React.useEffect(() => {
     if (editOpen) {
       setName(profile?.name ?? "");
@@ -48,6 +55,9 @@ export default function ProfilePage() {
       setCurrentPassword("");
       setPhoneSaved(false);
       setPhoneError(null);
+      setDeleteMode(false);
+      setDeletePassword("");
+      setDeleteError(null);
     }
   }, [editOpen, profile?.name]);
 
@@ -116,6 +126,29 @@ export default function ProfilePage() {
       }
     } finally {
       setPhoneSaving(false);
+    }
+  };
+
+  const canDelete = deletePassword.length >= 6 && !deleteSubmitting;
+
+  const handleDeleteAccount = async () => {
+    if (!canDelete) return;
+    setDeleteSubmitting(true);
+    setDeleteError(null);
+    try {
+      await deleteAccount(deletePassword);
+      setEditOpen(false);
+    } catch (err: unknown) {
+      const code = (err as { code?: string })?.code;
+      if (code === "auth/wrong-password" || code === "auth/invalid-credential") {
+        setDeleteError("Incorrect password.");
+      } else if (code === "auth/requires-recent-login") {
+        setDeleteError("For security, please log out and log back in, then try again.");
+      } else {
+        setDeleteError("Couldn't delete your account. Please try again.");
+      }
+    } finally {
+      setDeleteSubmitting(false);
     }
   };
 
@@ -273,6 +306,63 @@ export default function ProfilePage() {
               <p className="flex items-center gap-1.5 text-xs font-semibold text-veg">
                 <Check className="h-3.5 w-3.5" /> Phone number updated
               </p>
+            )}
+          </div>
+
+          <Separator className="my-6" />
+
+          <div className="space-y-2">
+            <label className="text-xs font-semibold uppercase tracking-wide text-red-400">Danger zone</label>
+
+            {!deleteMode ? (
+              <button
+                onClick={() => setDeleteMode(true)}
+                className="flex w-full items-center justify-between rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm font-bold text-red-500"
+              >
+                <span className="flex items-center gap-2">
+                  <Trash2 className="h-4 w-4" /> Delete Account
+                </span>
+              </button>
+            ) : (
+              <div className="space-y-3 rounded-2xl border border-red-100 bg-red-50 p-4">
+                <p className="text-xs text-red-500">
+                  This permanently deletes your account and profile. This can't be undone. Enter your password
+                  to confirm.
+                </p>
+                <div className="relative">
+                  <Lock className="pointer-events-none absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-red-300" />
+                  <Input
+                    type="password"
+                    value={deletePassword}
+                    onChange={(e) => setDeletePassword(e.target.value)}
+                    placeholder="Current password"
+                    className="border-red-200 bg-white pl-11 focus:border-red-400 focus:ring-red-100"
+                  />
+                </div>
+                {deleteError && <p className="text-xs font-medium text-red-600">{deleteError}</p>}
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1"
+                    onClick={() => {
+                      setDeleteMode(false);
+                      setDeletePassword("");
+                      setDeleteError(null);
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    size="sm"
+                    className="flex-1 bg-red-500 text-white hover:bg-red-600"
+                    disabled={!canDelete}
+                    onClick={handleDeleteAccount}
+                  >
+                    {deleteSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "Permanently Delete"}
+                  </Button>
+                </div>
+              </div>
             )}
           </div>
         </SheetBody>
